@@ -16,14 +16,21 @@ from datetime import date
 
 
 quotes = [
-    # Create a list of quotes here
+    "Água mole em pedra dura, tanto bate até que fura.",
+    "Quem semeia vento, colhe tempestade.",
+    "De grão em grão, a galinha enche o papo.",
+    "Mais vale um pássaro na mão do que dois voando.",
+    "Quem não arrisca, não petisca."
 ]
 
 def get_quote_of_the_day(quotes):
-    todays_quote = None
+    today = date.today()
 
-    # Your code here
-    
+    # Set the seed for the random generator based on today's date
+    random.seed(today.toordinal())
+
+    # Select a random quote
+    todays_quote = random.choice(quotes)    
     return todays_quote
 
 if __name__ == "__main__":

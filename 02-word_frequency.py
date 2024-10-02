@@ -22,9 +22,24 @@ import sys
 def word_frequency(text):
     frequencies = {} # Dictionary to store word frequencies
 
-    # Your code here
-    
-    return frequencies
+    # Convert the text to lowercase for case insensitivity
+    text = text.lower()
+
+    # Use regex to split the text into words (keeping only alphanumeric characters)
+    import re
+    words = re.findall(r'\b\w+\b', text)
+
+    # Count the frequency of each word
+    for word in words:
+        if word in frequencies:
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
+
+    # Sort the dictionary by keys (words) alphabetically
+    sorted_frequencies = dict(sorted(frequencies.items()))
+
+    return sorted_frequencies
 
 # Scaffold for opening a file and running word_frequency() on the contents
 if __name__ == "__main__":
